@@ -3,32 +3,290 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>ManyCatWorld</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #fffaf2;
+      color: #302b35;
+    }
+
+    header {
+      background: #6d55a3;
+      color: white;
+      padding: 18px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 22px;
+      font-weight: bold;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 80px 20px;
+      background: #eee5ff;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      margin: 0 0 15px;
+    }
+
+    .hero p {
+      font-size: 20px;
+      max-width: 700px;
+      margin: auto;
+      line-height: 1.6;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 28px;
+      padding: 14px 24px;
+      background: #6d55a3;
+      color: white;
+      text-decoration: none;
+      border-radius: 10px;
+      font-weight: bold;
+    }
+
+    .section {
+      max-width: 1100px;
+      margin: auto;
+      padding: 60px 25px;
+    }
+
+    .section h2 {
+      text-align: center;
+      font-size: 34px;
+      margin-bottom: 12px;
+    }
+
+    .section-intro {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 35px;
+      line-height: 1.6;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+      text-align: center;
+    }
+
+    .cat-icon {
+      font-size: 55px;
+    }
+
+    .progress-box {
+      background: white;
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+    }
+
+    .progress-line {
+      padding: 14px 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .progress-line:last-child {
+      border-bottom: none;
+    }
+
+    .coming-soon {
+      text-align: center;
+      background: #f7e7b9;
+      padding: 55px 20px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      background: #302b35;
+      color: white;
+    }
+
+    @media (max-width: 650px) {
+      .hero h1 {
+        font-size: 36px;
+      }
+
+      nav {
+        margin-top: 12px;
+      }
+
+      nav a {
+        margin: 0 12px 0 0;
+      }
+    }
+  </style>
 </head>
 
 <body>
+
+<header>
+  <div class="logo">🐾 ManyCatWorld</div>
+
+  <nav>
+    <a href="#cats">AI Cats</a>
+    <a href="#progress">Build Progress</a>
+    <a href="#house">Cat House</a>
+    <a href="#nfts">NFTs</a>
+  </nav>
+</header>
+
+<section class="hero">
   <h1>Welcome to ManyCatWorld 🐱</h1>
 
-  <h2>A world of AI cats and NFT cats</h2>
-
   <p>
-    ManyCatWorld is being built one cat at a time.
-    Follow the journey as we create our NFT cat collection
-    and bring our AI cats to life.
+    A growing world of AI cats and original NFT cats.
+    Follow the journey as we build their personalities,
+    their home, and their collection one cat at a time.
   </p>
 
+  <a class="button" href="#progress">See What We're Building</a>
+</section>
+
+
+<section class="section" id="cats">
   <h2>Meet the AI Cats</h2>
-  <p>Maine • Biscuit • Marmo • Mochi</p>
 
-  <h2>NFT Collection</h2>
-  <p>Our ManyCatWorld NFT collection is currently being built.</p>
-
-  <h2>AI Cat House</h2>
-  <p>
-    Soon you will be able to visit the Cat House and watch
-    our AI cats live, play, think, and interact.
+  <p class="section-intro">
+    Four AI cats started this world. Each has its own personality,
+    memories, wants, habits, and adventures.
   </p>
 
-  <p>ManyCatWorld is just getting started. 🐾</p>
+  <div class="cards">
+
+    <div class="card">
+      <div class="cat-icon">🐱</div>
+      <h3>Maine</h3>
+      <p>A playful and curious Maine Coon.</p>
+    </div>
+
+    <div class="card">
+      <div class="cat-icon">🐱</div>
+      <h3>Biscuit</h3>
+      <p>A playful tuxedo cat with plenty of energy.</p>
+    </div>
+
+    <div class="card">
+      <div class="cat-icon">🐱</div>
+      <h3>Marmo</h3>
+      <p>A lovable orange tabby who appreciates food and naps.</p>
+    </div>
+
+    <div class="card">
+      <div class="cat-icon">🐱</div>
+      <h3>Mochi</h3>
+      <p>A fluffy, gentle and mischievous gray-and-white cat.</p>
+    </div>
+
+  </div>
+</section>
+
+
+<section class="section" id="progress">
+  <h2>Building ManyCatWorld</h2>
+
+  <p class="section-intro">
+    The collection isn't appearing overnight.
+    Visitors can follow along as ManyCatWorld grows.
+  </p>
+
+  <div class="progress-box">
+
+    <div class="progress-line">
+      🧠 <strong>AI Cats:</strong>
+      Maine, Biscuit, Marmo and Mochi are alive.
+    </div>
+
+    <div class="progress-line">
+      🏠 <strong>AI Cat House:</strong>
+      The shared cat world is under development.
+    </div>
+
+    <div class="progress-line">
+      🎨 <strong>NFT Cat Collection:</strong>
+      Breeds, characters and variants are being created.
+    </div>
+
+    <div class="progress-line">
+      🌎 <strong>ManyCatWorld Website:</strong>
+      Now being built.
+    </div>
+
+  </div>
+</section>
+
+
+<section class="coming-soon" id="house">
+  <h2>🏠 AI Cat House</h2>
+
+  <p>
+    Maine, Biscuit, Marmo and Mochi already live together
+    inside our developing AI Cat House.
+  </p>
+
+  <p>
+    A future version of ManyCatWorld will let visitors watch
+    the cats live, play, think, sleep and interact.
+  </p>
+</section>
+
+
+<section class="section" id="nfts">
+  <h2>ManyCatWorld NFT Collection</h2>
+
+  <p class="section-intro">
+    Original cats from around the world are being designed,
+    named and turned into unique ManyCatWorld characters.
+  </p>
+
+  <div class="card">
+    <div class="cat-icon">🎨🐱</div>
+    <h3>The collection is being built now</h3>
+    <p>
+      Soon this area will become the NFT gallery,
+      with finished cats, names, descriptions and a link to OpenSea.
+    </p>
+  </div>
+</section>
+
+
+<footer>
+  <p>🐾 ManyCatWorld</p>
+  <p>Building a world one cat at a time.</p>
+</footer>
+
 </body>
 </html>
