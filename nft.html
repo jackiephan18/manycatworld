@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>ManyCatWorld NFT Collection</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #fffaf2;
+      color: #302b35;
+    }
+
+    header {
+      background: #6d55a3;
+      color: white;
+      padding: 18px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 22px;
+      font-weight: bold;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 55px 20px 45px;
+      background: #eee5ff;
+    }
+
+    .hero h1 {
+      font-size: 44px;
+      margin: 0 0 15px;
+    }
+
+    .hero p {
+      font-size: 20px;
+      max-width: 750px;
+      margin: auto;
+      line-height: 1.6;
+    }
+
+    .gallery-section {
+      max-width: 1300px;
+      margin: auto;
+      padding: 55px 25px 70px;
+    }
+
+    .gallery-section h2 {
+      text-align: center;
+      font-size: 34px;
+      margin: 0 0 12px;
+    }
+
+    .gallery-intro {
+      text-align: center;
+      max-width: 750px;
+      margin: 0 auto 40px;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+      align-items: start;
+    }
+
+    .sheet {
+      background: white;
+      border-radius: 18px;
+      padding: 18px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+      text-align: center;
+    }
+
+    .sheet img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 12px;
+    }
+
+    .sheet h3 {
+      font-size: 22px;
+      margin: 18px 0 5px;
+    }
+
+    .progress-note {
+      max-width: 850px;
+      margin: 45px auto 0;
+      padding: 25px;
+      background: #f7e7b9;
+      border-radius: 15px;
+      text-align: center;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .back-area {
+      text-align: center;
+      margin-top: 35px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 14px 24px;
+      background: #6d55a3;
+      color: white;
+      text-decoration: none;
+      border-radius: 10px;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      background: #302b35;
+      color: white;
+    }
+
+    @media (max-width: 800px) {
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 34px;
+      }
+
+      nav {
+        margin-top: 12px;
+      }
+
+      nav a {
+        margin: 0 12px 0 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">🐾 ManyCatWorld</div>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="house.html">AI Cat House</a>
+    <a href="nft.html">NFT Collection</a>
+  </nav>
+</header>
+
+
+<section class="hero">
+  <h1>🎨 ManyCatWorld NFT Collection</h1>
+
+  <p>
+    Follow the creation of the ManyCatWorld cat collection.
+    New cats, breeds and characters are being created one sheet at a time.
+  </p>
+</section>
+
+
+<section class="gallery-section">
+
+  <h2>Collection in Progress</h2>
+
+  <p class="gallery-intro">
+    Here's a look at the cats we've been creating.
+    More sheets will be added as ManyCatWorld continues to grow.
+  </p>
+
+
+  <div class="gallery">
+
+    <div class="sheet">
+      <img src="1.png" alt="ManyCatWorld NFT Collection Sheet 1">
+      <h3>Sheet 1</h3>
+    </div>
+
+
+    <div class="sheet">
+      <img src="2.png" alt="ManyCatWorld NFT Collection Sheet 2">
+      <h3>Sheet 2</h3>
+    </div>
+
+  </div>
+
+
+  <div class="progress-note">
+    🐱 <strong>More cats are coming.</strong><br><br>
+    The ManyCatWorld collection is still being built.
+    We'll continue adding new sheets as the collection grows.
+  </div>
+
+
+  <div class="back-area">
+    <a class="button" href="index.html">← Back to ManyCatWorld</a>
+  </div>
+
+</section>
+
+
+<footer>
+  <p>🐾 ManyCatWorld</p>
+  <p>Building a world one cat at a time.</p>
+</footer>
+
+</body>
+</html>
