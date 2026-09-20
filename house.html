@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>AI Cat House | ManyCatWorld</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #fffaf2;
+      color: #302b35;
+    }
+
+    header {
+      background: #6d55a3;
+      color: white;
+      padding: 18px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 22px;
+      font-weight: bold;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 45px 20px 35px;
+      background: #eee5ff;
+    }
+
+    .hero h1 {
+      font-size: 44px;
+      margin: 0 0 12px;
+    }
+
+    .hero p {
+      font-size: 19px;
+      max-width: 760px;
+      margin: auto;
+      line-height: 1.6;
+    }
+
+    .house-wrap {
+      max-width: 1250px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .house {
+      position: relative;
+      min-height: 690px;
+      overflow: hidden;
+      border-radius: 24px;
+      background: #f2e7d5;
+      box-shadow: 0 8px 28px rgba(0,0,0,0.12);
+    }
+
+    /* WALL */
+
+    .wall {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      height: 70%;
+      background: #f2e7d5;
+    }
+
+    /* FLOOR */
+
+    .floor {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 30%;
+      background: #c79665;
+      border-top: 10px solid #8b684e;
+    }
+
+    .floor::before,
+    .floor::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: #b58458;
+    }
+
+    .floor::before {
+      top: 55px;
+    }
+
+    .floor::after {
+      top: 115px;
+    }
+
+    /* WINDOW */
+
+    .window {
+      position: absolute;
+      width: 390px;
+      height: 220px;
+      left: 50%;
+      top: 55px;
+      transform: translateX(-50%);
+      background: #9bcddd;
+      border: 9px solid #765744;
+      overflow: hidden;
+    }
+
+    .window::before {
+      content: "";
+      position: absolute;
+      width: 7px;
+      height: 100%;
+      background: #765744;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 5;
+    }
+
+    .window::after {
+      content: "";
+      position: absolute;
+      height: 7px;
+      width: 100%;
+      background: #765744;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 5;
+    }
+
+    .sun {
+      position: absolute;
+      width: 55px;
+      height: 55px;
+      background: #f2ca58;
+      border-radius: 50%;
+      left: 42%;
+      top: 20px;
+    }
+
+    .mountain-one,
+    .mountain-two,
+    .mountain-three {
+      position: absolute;
+      bottom: -25px;
+      width: 180px;
+      height: 130px;
+      background: #8fb58b;
+      transform: rotate(45deg);
+    }
+
+    .mountain-one {
+      left: 10px;
+    }
+
+    .mountain-two {
+      left: 120px;
+    }
+
+    .mountain-three {
+      left: 245px;
+    }
+
+    /* CURTAINS */
+
+    .curtain {
+      position: absolute;
+      top: 45px;
+      width: 65px;
+      height: 275px;
+      background: #d7b17f;
+      border: 2px solid #a47e55;
+    }
+
+    .curtain.left {
+      left: calc(50% - 255px);
+      border-radius: 25px 0 30px 30px;
+    }
+
+    .curtain.right {
+      right: calc(50% - 255px);
+      border-radius: 0 25px 30px 30px;
+    }
+
+    /* WALL DECOR */
+
+    .wall-title {
+      position: absolute;
+      top: 24px;
+      left: 28px;
+      font-size: 26px;
+      font-weight: bold;
+      color: #51372a;
+    }
+
+    .wall-subtitle {
+      position: absolute;
+      top: 60px;
+      left: 30px;
+      color: #725647;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    .picture {
+      position: absolute;
+      width: 95px;
+      height: 105px;
+      background: #f5ead8;
+      border: 8px solid #805e48;
+      text-align: center;
+      padding-top: 26px;
+      font-weight: bold;
+      color: #765747;
+    }
+
+    .picture.one {
+      left: 65px;
+      top: 230px;
+    }
+
+    .picture.two {
+      right: 65px;
+      top: 230px;
+    }
+
+    /* RUG */
+
+    .rug {
+      position: absolute;
+      left: 50%;
+      bottom: 12px;
+      transform: translateX(-50%);
+      width: 720px;
+      height: 180px;
+      background: #ddc09e;
+      border: 4px solid #ae8765;
+      border-radius: 50%;
+    }
+
+    .rug-inner {
+      position: absolute;
+      left: 50%;
+      bottom: 30px;
+      transform: translateX(-50%);
+      width: 540px;
+      height: 125px;
+      background: #ead5ba;
+      border: 2px solid #c7a17c;
+      border-radius: 50%;
+    }
+
+    /* OBJECTS */
+
+    .blanket {
+      position: absolute;
+      width: 245px;
+      height: 70px;
+      left: 50%;
+      bottom: 55px;
+      transform: translateX(-50%) rotate(-2deg);
+      background: #c9a7c9;
+      border: 3px solid #866c86;
+      border-radius: 25px;
+    }
+
+    .blanket::after {
+      content: "soft kneading blanket";
+      position: absolute;
+      width: 100%;
+      text-align: center;
+      bottom: 8px;
+      color: #70566f;
+      font-size: 11px;
+      font-weight: bold;
+    }
+
+    .bowl {
+      position: absolute;
+      bottom: 25px;
+      width: 65px;
+      height: 30px;
+      border-radius: 0 0 40px 40px;
+      text-align: center;
+      font-size: 11px;
+      font-weight: bold;
+      padding-top: 7px;
+    }
+
+    .water {
+      left: 42%;
+      background: #8fb6c6;
+      border: 2px solid #617b87;
+    }
+
+    .food {
+      left: 49%;
+      background: #c17b53;
+      border: 2px solid #86543b;
+    }
+
+    .box {
+      position: absolute;
+      right: 130px;
+      bottom: 25px;
+      width: 80px;
+      height: 65px;
+      background: #c58a50;
+      border: 3px solid #815936;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #704929;
+      font-weight: bold;
+    }
+
+    .scratcher {
+      position: absolute;
+      right: 35px;
+      bottom: 25px;
+      width: 75px;
+      height: 130px;
+    }
+
+    .scratcher-post {
+      width: 24px;
+      height: 105px;
+      background: #b38e63;
+      border: 2px solid #76523b;
+      margin: auto;
+    }
+
+    .scratcher-base {
+      height: 15px;
+      background: #76523b;
+    }
+
+    .mouse {
+      position: absolute;
+      right: 250px;
+      bottom: 38px;
+      font-size: 34px;
+    }
+
+    /* CATS */
+
+    .cats {
+      position: absolute;
+      left: 3%;
+      right: 3%;
+      bottom: 105px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      align-items: end;
+      z-index: 10;
+    }
+
+    .cat {
+      text-align: center;
+      position: relative;
+    }
+
+    .cat-status {
+      display: inline-block;
+      min-width: 185px;
+      padding: 8px 10px;
+      margin-bottom: 8px;
+      background: #fffaf0;
+      border: 2px solid #8d7059;
+      border-radius: 7px;
+      color: #4b3428;
+      font-size: 13px;
+    }
+
+    .cat-status strong {
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    .cat img {
+      width: 185px;
+      height: 185px;
+      object-fit: contain;
+      display: block;
+      margin: auto;
+      border-radius: 18px;
+    }
+
+    .cat-name {
+      margin-top: 5px;
+      font-weight: bold;
+      color: #51372a;
+    }
+
+    .thought {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      top: -58px;
+      width: 210px;
+      min-height: 45px;
+      background: #fffdf7;
+      border: 2px solid #8a5b73;
+      border-radius: 8px;
+      padding: 8px;
+      font-size: 12px;
+      font-weight: bold;
+      color: #3f342e;
+    }
+
+    .house-note {
+      text-align: center;
+      max-width: 850px;
+      margin: 25px auto 50px;
+      font-size: 17px;
+      line-height: 1.6;
+    }
+
+    .back-button {
+      display: inline-block;
+      background: #6d55a3;
+      color: white;
+      text-decoration: none;
+      padding: 12px 20px;
+      border-radius: 9px;
+      font-weight: bold;
+      margin-top: 15px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 28px 20px;
+      background: #302b35;
+      color: white;
+    }
+
+    @media (max-width: 900px) {
+      .house {
+        min-height: 1050px;
+      }
+
+      .cats {
+        grid-template-columns: repeat(2, 1fr);
+        bottom: 130px;
+      }
+
+      .window {
+        width: 330px;
+      }
+
+      .rug {
+        width: 90%;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 34px;
+      }
+
+      nav {
+        margin-top: 12px;
+      }
+
+      nav a {
+        margin: 0 12px 0 0;
+      }
+
+      .house {
+        min-height: 1500px;
+      }
+
+      .cats {
+        grid-template-columns: 1fr;
+        bottom: 110px;
+      }
+
+      .cat img {
+        width: 165px;
+        height: 165px;
+      }
+
+      .window,
+      .curtain,
+      .picture {
+        display: none;
+      }
+
+      .rug {
+        height: 230px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">🐾 ManyCatWorld</div>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="index.html#cats">AI Cats</a>
+    <a href="house.html">Cat House</a>
+    <a href="index.html#nfts">NFTs</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>🏠 AI Cat House</h1>
+
+  <p>
+    Welcome to the home of Maine, Biscuit, Marmo and Mochi.
+    Their AI world is being built so they can think, play,
+    rest, explore and interact together.
+  </p>
+</section>
+
+<div class="house-wrap">
+
+  <div class="house">
+
+    <div class="wall"></div>
+    <div class="floor"></div>
+
+    <div class="wall-title">AI CAT HOUSE</div>
+    <div class="wall-subtitle">
+      Maine • Biscuit • Marmo • Mochi
+    </div>
+
+    <div class="window">
+      <div class="sun"></div>
+      <div class="mountain-one"></div>
+      <div class="mountain-two"></div>
+      <div class="mountain-three"></div>
+    </div>
+
+    <div class="curtain left"></div>
+    <div class="curtain right"></div>
+
+    <div class="picture one">
+      CAT<br>HOME
+    </div>
+
+    <div class="picture two">
+      CAT<br>CATS
+    </div>
+
+    <div class="rug"></div>
+    <div class="rug-inner"></div>
+
+    <div class="blanket"></div>
+
+    <div class="bowl water">water</div>
+    <div class="bowl food">food</div>
+
+    <div class="mouse">🐭</div>
+
+    <div class="box">BOX</div>
+
+    <div class="scratcher">
+      <div class="scratcher-post"></div>
+      <div class="scratcher-base"></div>
+    </div>
+
+    <div class="cats">
+
+      <div class="cat">
+        <div class="cat-status">
+          <strong>Maine</strong>
+          playful • exploring
+        </div>
+
+        <img src="Maine.png" alt="Maine">
+
+        <div class="cat-name">Maine</div>
+      </div>
+
+
+      <div class="cat">
+        <div class="cat-status">
+          <strong>Biscuit</strong>
+          playful • mouse hunting
+        </div>
+
+        <img src="Biscuit.png" alt="Biscuit">
+
+        <div class="cat-name">Biscuit</div>
+      </div>
+
+
+      <div class="cat">
+        <div class="cat-status">
+          <strong>Marmo</strong>
+          cozy • resting
+        </div>
+
+        <img src="Marmo.png" alt="Marmo">
+
+        <div class="cat-name">Marmo</div>
+      </div>
+
+
+      <div class="cat">
+        <div class="cat-status">
+          <strong>Mochi</strong>
+          curious • investigating
+        </div>
+
+        <img src="Mochi.png" alt="Mochi">
+
+        <div class="cat-name">Mochi</div>
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div class="house-note">
+
+    <h2>The Cat House is growing</h2>
+
+    <p>
+      The desktop AI Cat House already lets the four cats
+      think and live together using their individual AI brains.
+      This website version is the beginning of bringing
+      their world online.
+    </p>
+
+    <p>
+      Later, visitors will be able to watch the cats'
+      activities, thoughts and interactions here.
+    </p>
+
+    <a class="back-button" href="index.html">
+      ← Back to ManyCatWorld
+    </a>
+
+  </div>
+
+</div>
+
+
+<footer>
+  <p>🐾 ManyCatWorld</p>
+  <p>Same world. More purrs.</p>
+</footer>
+
+</body>
+</html>
